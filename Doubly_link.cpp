@@ -69,7 +69,7 @@ void reversePrint(){
 
 int main(){
 head=NULL;
-int n,x,y=1;
+int n,x;
 cout<<"how many numbers?\n";
 cin>>n;
 for (int i=0; i<n;i++){
