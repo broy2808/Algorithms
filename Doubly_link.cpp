@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-//Reverse linked list using iterative method
+
 struct node{
   int data;
   node* next;
@@ -14,7 +14,7 @@ struct node* getnewnode(int x){
   newnode->data=x;
   newnode->next=NULL;
   newnode->prev=NULL;
-  return newnode;//Return address of the new node created
+  return newnode;
 }
 void insertathead(int data){
    struct node* newnode=getnewnode(data);
@@ -28,13 +28,26 @@ void insertathead(int data){
 
 }
 
+void insertattail(int data){
+   struct node* newnode=getnewnode(data);
+   struct node* temp=head;
+   if (temp==NULL) return;
+   while (temp->next!=NULL){
+   temp=temp->next;
+   }
+   temp->next=newnode;
+   newnode->prev=temp;
+
+}
+
 void print(){
   struct node* temp=head;
   cout<<"The list is : \n";
   while (temp!=NULL){
-  cout<<temp->data<<"\n";
+  cout<<temp->data<<" ";
   temp=temp->next;
   }
+ cout<<"\n";
 }
 
 void reversePrint(){
@@ -48,9 +61,10 @@ void reversePrint(){
 
 
   while (temp!=NULL){
-    cout<<temp->data<<"\n";
+    cout<<temp->data<<" ";
     temp=temp->prev;
   }
+  cout<<"\n";
 }
 
 int main(){
@@ -63,6 +77,7 @@ for (int i=0; i<n;i++){
   cin>>x;
   insertathead(x);
 }
+insertattail(39);
 print();
 reversePrint();
 return 0;
